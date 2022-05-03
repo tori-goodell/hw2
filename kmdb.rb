@@ -278,6 +278,14 @@ puts ""
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
+movies = Movie.all
+
+for movie in movies
+    studio = Studio.find_by({"id" => movie["studio_id"]})
+    puts "#{movie["title"]} #{movie["year_released"]} #{movie["rated"]} #{studio["name"]}"
+end
+
+
 # Prints a header for the cast output
 puts ""
 puts "Top Cast"
@@ -286,3 +294,15 @@ puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+roles = Role.all
+# Notes to myself: I believe you need the above code to have the "in roles" part work below (to confirm)
+
+for role in roles
+    movie_title = Movie.find_by({"id" => role["movie_id"]})
+    actor_name = Actor.find_by({"id" => role["actor_id"]})
+    puts "#{movie_title["title"]} #{actor_name["name"]} #{role["character_name"]}"
+end
+
+# Notes to myself: the items in red/quotes need to match the column headers exactly as you input them into the table. For instance, I can't say movie_title["name"]
+# because the column header in that table is "title" not "name" --> that's just how I chose to input it 

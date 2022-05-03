@@ -79,12 +79,12 @@ Role.destroy_all
 # Generate models and tables, according to the domain model.
 # TODO!
 
-rails generate model Studio
-rails generate model Movie
-rails generate model Actor
-rails generate model Role
+# rails generate model Studio
+# rails generate model Movie
+# rails generate model Actor
+# rails generate model Role
 
-rails db:migrate
+# rails db:migrate
 
 # Insert data into the database that reflects the sample data shown above.
 # Do not use hard-coded foreign key IDs.
@@ -192,7 +192,7 @@ role2.save
 
 role3 = Role.new
 role3["movie_id"] = batman_begins["id"]
-role3["actor_id"] = laim["id"]
+role3["actor_id"] = liam["id"]
 role3["character_name"] = "Ra's Al Ghul"
 role3.save
 
